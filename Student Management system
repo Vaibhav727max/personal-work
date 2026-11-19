@@ -1,0 +1,71 @@
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+// Student class
+class Student {
+public:
+    int rollNo;
+    string name;
+    float marks;
+
+    // Function to add student details
+    void addStudent() {
+        cout << "Enter Roll Number: ";
+        cin >> rollNo;
+
+        cout << "Enter Name: ";
+        cin >> name;
+
+        cout << "Enter Marks: ";
+        cin >> marks;
+    }
+
+    // Function to display student details
+    void displayStudent() {
+        cout << "\nRoll Number: " << rollNo;
+        cout << "\nName: " << name;
+        cout << "\nMarks: " << marks << endl;
+    }
+};
+
+int main() {
+    Student s[10]; // Array of 10 students
+    int choice, count = 0;
+
+    do {
+        // Display menu
+        cout << "\n1. Add Student";
+        cout << "\n2. Display Students";
+        cout << "\n3. Exit";
+        cout << "\nEnter choice: ";
+        cin >> choice;
+
+        switch (choice) {
+        case 1:
+            if (count < 10) {
+                s[count].addStudent();
+                count++;
+            } else {
+                cout << "Student limit reached!";
+            }
+            break;
+
+        case 2:
+            for (int i = 0; i < count; i++) {
+                s[i].displayStudent();
+            }
+            break;
+
+        case 3:
+            cout << "Exiting...";
+            break;
+
+        default:
+            cout << "Invalid choice!";
+        }
+    } while (choice != 3);
+
+    return 0;
+}
